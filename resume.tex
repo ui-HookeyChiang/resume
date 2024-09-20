@@ -1,0 +1,206 @@
+\documentclass{resume} % Use the custom resume.cls style
+\usepackage{outlines}
+\usepackage[left=0.4 in,top=0.4in,right=0.4 in,bottom=0.4in]{geometry} % Document margins
+\newcommand{\tab}[1]{\hspace{.2667\textwidth}\rlap{#1}}
+\newcommand{\itab}[1]{\hspace{0em}\rlap{#1}}
+% \newcounter{cenumi}
+% \newcounter{cenumisaved}
+% \setcounter{cenumisaved}{0}
+% \newcommand{\labelcenumi}{\arabic{cenumi}.}
+% \newenvironment{cenumeratei}%
+%   {\begin{list}{$\bullet$}{\usecounter{cenumi}\itemsep=-0.25em\vspace{-0.25em}}%
+% \setcounter{cenumi}{\value{cenumisaved}}}%
+%   {\setcounter{cenumisaved}{\value{cenumi}}%
+% \end{list}}
+% \renewcommand{\outlinei}{cenumeratei}
+
+\newenvironment{cenumeratei}%
+{\begin{list}{$\bullet$}{\itemsep=-0.25em\vspace{-0.25em}}%
+  }%
+    {%
+  \end{list}}
+\renewcommand{\outlinei}{cenumeratei}
+
+\newenvironment{cenumerateii}%
+  {\begin{list}{$\circ$}{\itemsep=-0.31em\vspace{-0.31em}}%
+  }%
+    {%
+  \end{list}}
+\renewcommand{\outlineii}{cenumerateii}
+
+% Metadata
+\title{Hookey Chiang's Resume}
+\author{Hookey Chiang}
+\date{\today\\v0.1}
+
+% Content
+\name{Tsung-Han Chiang} % Your name
+% You can merge both of these into a single line, if you do not have a website.
+\address{+886(932)762-686 \textbar\, Taiwan/Remote \textbar\,
+\href{mailto:hookey123456@gmail.com}{hookey123456@gmail.com} \textbar\,
+\href{https://www.linkedin.com/in/hookey-chiang/}{https://www.linkedin.com/in/hookey-chiang}}
+
+\begin{document}
+
+%------------------------------------------------------------------------------
+
+\begin{rSection}{SUMMARY} % TODO
+Being a continuous learner with a background in analyzing system performance.
+Passionate about identifying problems and simplifying complex solutions.
+Focusing on succinct communication.
+%  Managed and deployed Linux system with 3+ years of experience, got hands-on experience in user accounts management,
+% system performance monitoring, scalable virtual network deployment, and vulnerability scanning. Looking to apply
+% technical skills in developing secure IT systems and contributing to a company’s security initiatives.
+\end{rSection} % SUMMARY
+
+%------------------------------------------------------------------------------
+
+% \begin{rSection}{SKILLS}
+%
+% \begin{tabular}{ @{} >{\bfseries}l @{\hspace{6ex}} l }
+% Technical Skills & A, B, C, D \cr
+% Soft Skills & A, B, C, D\cr
+% XYZ & A, B, C, D\cr
+% \end{tabular}
+% \end{rSection}
+
+\begin{rSection}{WORK EXPERIENCE} % TODO
+\textbf{Ubiquiti inc. \hfill Taiwan/Remote}
+\\{UniFi-OS Storage Software Engineer \hfill Mar 2022 - Present}%
+\begin{outline}
+  \1 Delievered UniFi-NAS NPIs, including bringups, factory test plans, and service
+maintenance on Debian.
+    \2 Upgraded Linux from 4.19 to 5.10, handling incompatibilities with back-tracking mainline commits.
+    \2 Provided technical guidance, implementing cohesive user-friendly NAS solutions involving Samba, snapshots, data backup, data integrity, system-data migration, secure network discovery; shared these specifications, documents, reproducible code snippets in Confluence with cross-teams.
+  \1 Redesigned the fs layout to reduce needless writes by 50\% and address leakage of internal data.
+  \1 Tuned btrfs configs on atime, space\_cache, qgroup usage to achieve
+  better 8\% read and 5\% write.
+  \1 Quantified and worked-around hours-long subvolume deletions causing btrfs unresponsive.
+  \1 Brought system stability and performance improvements to all products with UniFi-OS.
+  \1 Reduced overheads of a python cli by 65\% of CPU, 50\% of memory, then
+  resulting in 15\%-to-50\% less-load-average system. Then introduced a gRPC state exporter for subscription and streaming.
+  \1 Resolved an OOM due to socket buffers on a 64kB page-sized system,
+  reducing 93\% over-allocation.
+  \1 Assured software quality with tools such as golang test framework, xfstest, and packetdriller.
+\end{outline}
+% Ubiquiti
+
+\textbf{QNAP System inc. \hfill Taiwan}
+\\{Software Engineer \hfill Jan 2018 - Feb 2022}%
+\begin{outline}
+  % \item Achieved X\% growth for XYZ using A, B, and C skills.
+  % \item Led XYZ which led to X\% of improvement in ABC
+  % \item Developed XYZ that did A, B, and C using X, Y, and Z.
+  \1 Took full part in Hybridmount, a filesystem as cloud storage gateway, running on 190K of QNAP NASes as of 2021, capable of video streaming and accessible through common protocols, SMB/NFS/FTP.
+  \1 Designed database schema, CLI, RPC protocol, loopback-fs cache management.
+  \1 Handled cloud-, platform- variant filename encodings so as to utilize Linux VFS dcache.
+  \1 Shortened duration of compiling codes from 30 minutes to less than 10 minutes.
+  \1 Shortened duration of copying 50 millions of files from 60 days to less than 7 days.
+  \1 Maintained software quality by composing unit tests, integration tests, FS testsuites and benchmarks, run with Jenkins and Docker. Handled less than 20 support tickets since the first official release.
+  \1 Identified multiple deadlocks and data races. Improved sequential write
+    by 50\% faster, random read 10\%, metadata speed 300\% with optimizations, including multi-threading, fine-grained locking, VFS caching, file read-ahead, filename hashing, database index.
+  \1 Realized features in deduplication filesystem, write-back cache and
+    chunk-defragmentation. Reworked read/write operations with 50\% less lines
+    of code and fixed abnormal data shown at chunk edges.
+  \1 Analyzed and created POC of a POSIX-compliant cloud-tiering file system with FUSE, IPFS in golang.
+\end{outline}% QNAP
+\end{rSection}% EXPERIENCE
+
+%------------------------------------------------------------------------------
+
+\begin{rSection}{EDUCATION}
+\textbf{National Taiwan University \hfill Taipei, Taiwan}
+\\M.S. in Computer Science and Information Engineering \hfill Sep 2014 - Jun
+2016%
+\begin{outline}
+  \1 \textbf{GPA}: 3.84/4.30
+  \1 \textbf{Thesis}: Program Analysis with A Loop-function-based Tracing Tool
+  on Virtual Platform.
+    \2 Rewarded as the best paper of 2017 ACM Research in Adaptive and Convergent Systems.
+\end{outline}
+
+\textbf{National Chiao Tung University \hfill Hsinchu, Taiwan}
+\\B.S. in Electrical Engineering and Computer Science \hfill Sep 2010 - Jun
+2014%
+\begin{outline}
+  \1 \textbf{Grade}: 90.2\%
+  \1 \textbf{Award}: Recieved 4 times of the Academic Achievement Award.
+\end{outline}
+
+\textbf{University of Illinois at Urbana-Champaign \hfill Champaign, IL}
+\\Exchange Student in Computer Science \hfill Aug 2013 - Dec 2013%
+
+\end{rSection}% Education
+
+%------------------------------------------------------------------------------
+
+\begin{rSection}{PROJECTS}
+% \textbf{Program Analysis with A Loop-function-based Tracing Tool on
+%   Virtual Platform.}
+% \begin{outline}
+% {Rewarded as the best paper of 2017 ACM Research in Adaptive and Convergent Systems.
+% This work leveraged QEMU to collect detailed program performance metrics from
+% hardware and software across call context trees, which summarizes the program
+% execution order of branches.}
+% \end{outline}
+
+\textbf{Phase-based Profiling and Performance Prediction with Timing
+  Approximate Simulators.}
+\begin{outline}
+  \1 Achieved cycle-approximate simulation and to speed up design space
+  exploration on QEMU.
+  %, sponsored by the Ministry of Science and Technology of Taiwan and MediaTek Inc.
+  \1 Role- Was to implement Just-in-Time Model Selection, dedicated to speeding
+  up the architectural simulation by detecting repeating patterns and converting
+  them into faster timing models.
+\end{outline}
+
+\textbf{Thread Cluster Memory with Request Reordering on the UTAH
+  Simulated Memory.}
+\begin{outline}
+  \1 Proposed memory scheduling algorithm, which dynamically groups threads into
+  two clusters based on memory intensity, outperforming the
+  first-come-first-serve about 10\% on execution time, 19\% on fairness, and
+  21\% on energy delay product. And got first place in the NTU-in-course contest.
+  \1 Role- Was to make a research on efficient memory schedulers and factor out performance implications.
+\end{outline}
+
+\textbf{CodeXL-aided Steiner Tree Acceleration on Heterogeneous System
+  Architecture.}
+\begin{outline}
+  \1 Optimized GPU kernels with CodeXL GPU profiler, increasing the usage of
+  high-speed general purpose registers, reducing slow-speed memory usage, and
+  ultimately improving performance by 40\%.
+\end{outline}
+
+\textbf{Pharmacy POS System}
+\begin{outline}
+  \1 Built a POS system based on the Electron framework, for pharmacists to
+  receive prescriptions and report results to the Bureau of National Health Insurance(NHI).
+  \1 Role- Was to figure out data spec of NHI and implement card-agent on Windows to
+communicate NHI cards with APIs and to interact with web-based POS.
+\end{outline}
+
+\end{rSection} % PROJECTS
+
+%----------------------------------------------------------------------------------------
+
+\begin{rSection}{LEADERSHIP}
+\textbf{Chair of residents’ committee}. \hfill \textbf{Jul 2021 - Jun 2023}
+\begin{outline}
+  \1 Achieved to expedite administrative tasks and reduce ramp-up time for
+  future successors by establishing standard operating procedures, introducing
+  paperless document management and implementing templates.
+  \1 Optimized community regulations regarding meeting quorum and the election
+  system.
+\end{outline}
+
+\textbf{Chair of EECS department student council}. \hfill \textbf{Sep 2012 - Jun 2013}
+\begin{outline}
+  \1 Organized after-school tutoring for 6 students struggling with learning programming.
+  \1 Hold an orientation event where professors and seniors shared aspects
+  of university life with 30 freshmen.
+\end{outline}
+\end{rSection} % Leadership
+
+\end{document}
